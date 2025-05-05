@@ -1,18 +1,16 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [controlledValue, setControlledValue] = useState("");
-  const uncontrolledInputRef = useRef("");
+  const [value, setValue] = useState("");
+  const [list, setList] = useState([]);
 
   const handleOnChange = (e) => {
-    setControlledValue(e.target.value);
+    setValue(e.target.value);
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    alert(
-      `Controlled input: ${controlledValue}\nUncontrolled input: ${uncontrolledInputRef.current.value}`
-    );
+    setList([...list, value]);
   };
   return (
     <div>
@@ -20,17 +18,21 @@ function App() {
         onSubmit={handleOnSubmit}
         className="card d-flex gap-5 col-6 my-4 mx-auto p-4 bg-info rounded-4"
       >
-        <label>{controlledValue}</label>
+        <label>{value}</label>
         <input
           type="text"
           placeholder="enter name"
-          ref={uncontrolledInputRef}
-          value={controlledValue}
+          value={value}
           onChange={handleOnChange}
         ></input>
         <button type="submit" className="bg-primary text-white">
           Submit
         </button>
+        <ul>
+          {list.map((item, i) => {
+            return <li>{item}</li>;
+          })}
+        </ul>
       </form>
     </div>
   );
