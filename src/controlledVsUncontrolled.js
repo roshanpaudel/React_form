@@ -58,7 +58,7 @@ export default function ControlledVsUncontrolled() {
           <label className="block font-medium mb-1">Uncontrolled Input:</label>
           <input
             type="text"
-            ref={uncontrolledInputRef} // Value is accessed via ref (not managed by React)
+            ref={uncontrolledInputRef} // Value is accessed via ref (not managed by React state)
             className="border px-2 py-1 w-full"
           />
         </div>
