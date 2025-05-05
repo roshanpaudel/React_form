@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# 📝 Form App - Controlled Form with Data Display
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application demonstrating a **controlled form** with real-time data display and a list of submitted entries. Built using **prop drilling** and **state uplifting** with a modular component-based structure.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Controlled Form**: All form fields are managed via React state.
+- **Real-time Display**: User inputs update and display instantly.
+- **Data Submission**: Form data is saved to a submitted data list.
+- **List View**: Displays a running list of submitted entries.
+- **State Management**: Uses prop drilling and state uplifting.
+- **Component-Based**: UI divided into multiple reusable components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Technologies Used
 
-### `npm test`
+- React
+- JavaScript (ES6+)
+- HTML
+- CSS (or CSS framework)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧱 Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Component Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+App
+|
+--- FormComponent
+| |
+| --- InputComponent1
+| |
+| --- InputComponent2
+|
+--- DisplayComponent
+|
+--- ListComponent
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Responsibilities
 
-### `npm run eject`
+- **App Component**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - Manages the form state and submitted list.
+  - Passes props down to child components.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **FormComponent**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  - Contains input fields and the submit button.
+  - Accepts state and setters as props for controlled input.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **DisplayComponent**:
 
-## Learn More
+  - Shows current form input values in real-time.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **ListComponent**:
+  - Displays the list of all submitted form data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🔄 Data Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **User Input** → Input field triggers `onChange`
+2. **Event Handler** → Updates state via setter from parent
+3. **State Uplifting** → Parent state reflects latest input
+4. **Prop Drilling** → Updated state passed to display and input components
+5. **Real-time Display** → DisplayComponent updates with current input
+6. **Form Submission** → Data added to submitted list in App
+7. **List Update** → ListComponent re-renders with new data
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🧪 How to Run
 
-### Making a Progressive Web App
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [Node.js](https://nodejs.org/)
+- npm
+- Git (optional)
 
-### Advanced Configuration
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+git clone <repository_url>   # If available
+cd <repository_name>
+npm install
+npm start
+```
