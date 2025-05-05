@@ -1,25 +1,24 @@
 import { useRef, useState } from "react";
 import "./App.css";
 
-const [controlledValue, setControlledValue] = useState("");
-const uncontrolledInputRef = useRef("");
-
-const handleOnChange = (e) => {
-  setControlledValue(e.target.value);
-};
-const handleOnSubmit = (e) => {
-  e.preventDefault();
-  alert(
-    `Controlled input: ${controlledValue}\nUncontrolled input: ${uncontrolledInputRef.current.value}`
-  );
-};
-
 function App() {
+  const [controlledValue, setControlledValue] = useState("");
+  const uncontrolledInputRef = useRef("");
+
+  const handleOnChange = (e) => {
+    setControlledValue(e.target.value);
+  };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    alert(
+      `Controlled input: ${controlledValue}\nUncontrolled input: ${uncontrolledInputRef.current.value}`
+    );
+  };
   return (
     <div>
       <form
         onSubmit={handleOnSubmit}
-        className="card d-flex gap-5 col-8 my-4 mx-auto p-4 bg-info rounded-4"
+        className="card d-flex gap-5 col-6 my-4 mx-auto p-4 bg-info rounded-4"
       >
         <label>{controlledValue}</label>
         <input
