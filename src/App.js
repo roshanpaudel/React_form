@@ -5,20 +5,24 @@ import { NameList } from "./NameList";
 
 function App() {
   //   const [value, setValue] = useState("");
-  //   const [list, setList] = useState([]);
+  const [list, setList] = useState([]);
 
   //   const handleOnChange = (e) => {
   //     setValue(e.target.value);
   //   };
   //   const handleOnSubmit = (e) => {
   //     e.preventDefault();
-  //     setList([...list, value]);};
+  //
+  const addUser = (name) => {
+    setList([...list, name]);
+  };
+  console.log(list);
   return (
     <div>
-      <Form />
-      <NameList />
+      <Form addUser={addUser}>
+        <NameList list={list} />
+      </Form>
     </div>
   );
 }
-
 export default App;
